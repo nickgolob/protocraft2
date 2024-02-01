@@ -1,0 +1,15 @@
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/bin/Debug/net8.0/main
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/bin/Debug/net8.0/main.deps.json
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/bin/Debug/net8.0/main.runtimeconfig.json
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/bin/Debug/net8.0/main.dll
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/bin/Debug/net8.0/main.pdb
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.AssemblyInfoInputs.cache
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.AssemblyInfo.cs
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.csproj.CoreCompileInputs.cache
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.sourcelink.json
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.dll
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/refint/main.dll
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.pdb
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/main.genruntimeconfig.cache
+/Users/nickgolob/Documents/unity projects/test/code_testing/main/obj/Debug/net8.0/ref/main.dll
