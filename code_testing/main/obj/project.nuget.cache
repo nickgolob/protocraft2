@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0JEUDLmArDYAKos/ShYfrBbPXX9bnTLbBwAU5lEtVo5iWK5dEyg1vFvlWkPX69COuYLWfH5LiIsCKtqR7z8HeQ==",
+  "dgSpecHash": "iNtJzLYA+AgqOwf3vaBDWuyRkpC7sdDMfWfi5r0DhQlGwF3cv5CBzRUk33j73aohrLmxJD3SRZr7OVEUkC4CAA==",
   "success": true,
   "projectFilePath": "/Users/nickgolob/Documents/unity projects/test/code_testing/main/main.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/nickgolob/.nuget/packages/switchenumanalyzer/1.0.0.4/switchenumanalyzer.1.0.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

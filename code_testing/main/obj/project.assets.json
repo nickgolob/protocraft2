@@ -1,11 +1,33 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "SwitchEnumAnalyzer/1.0.0.4": {
+        "type": "package"
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SwitchEnumAnalyzer/1.0.0.4": {
+      "sha512": "vkA6ToDFjsWAUCYUT+O/SBWLYxWIPZcHYiKccHrlYuBo4nzgE52ow+aos3XttMYjAAYmsCNr3DvKHTfbJlVgFw==",
+      "type": "package",
+      "path": "switchenumanalyzer/1.0.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "switchenumanalyzer.1.0.0.4.nupkg.sha512",
+        "switchenumanalyzer.nuspec",
+        "tools/analyzers/SwitchEnum.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "SwitchEnumAnalyzer >= 1.0.0.4"
+    ]
   },
   "packageFolders": {
     "/Users/nickgolob/.nuget/packages/": {}
@@ -43,6 +65,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "SwitchEnumAnalyzer": {
+            "target": "Package",
+            "version": "[1.0.0.4, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
