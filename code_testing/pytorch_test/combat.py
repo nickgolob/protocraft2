@@ -120,7 +120,7 @@ validate_states()
 class Combatant:
     name: str
     reservoirs = Reservoirs(health=10, energy=10, focus=10)
-    state: Move = Move.NEUTRAL
+    move: Move = Move.NEUTRAL
 
     def __init__(self, name: str):
         self.name = name
@@ -131,8 +131,11 @@ class Combatant:
     def get_move(self, enemy: 'Combatant') -> Move:
         raise "virtual"
 
-    def apply_move_result(self, deltas: Reservoirs):
+    def apply_move_result(self, deltas: Reservoirs) -> None:
         self.reservoirs += deltas
+
+    def post_move_update(self, enemy: 'Combatant') -> None:
+        pass
 
 
 def resolve_moves(a: Move, b: Move) -> tuple[Reservoirs, Reservoirs]:
@@ -189,8 +192,12 @@ def battle(a: Combatant, b: Combatant) -> None:
     timer = 1000
     while a.is_alive() and b.is_alive() and timer > 0:
         a_result, b_result = resolve_moves(a.get_move(b), b.get_move(a))
+        a.state = a_result
+        b.state = b_result
         a.apply_move_result(a_result)
         b.apply_move_result(b_result)
+        a.post_move_update(b)
+        b.post_move_update(a)
         timer -= 1
     if not a.is_alive():
         print('A died')
