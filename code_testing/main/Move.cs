@@ -20,7 +20,7 @@ public static class Transitions {
                 [Move.NEUTRAL, Move.ATTACK_PREP_2, Move.BLOCK,]
             }, {
                 Move.ATTACK_PREP_2,
-                [Move.NEUTRAL, Move.ATTACK_PREP_1,]
+                [Move.NEUTRAL, Move.ATTACK_PREP_1, Move.ATTACK_HIT]
             }, {
                 Move.ATTACK_HIT,
                 [Move.ATTACK_RECOVER,]

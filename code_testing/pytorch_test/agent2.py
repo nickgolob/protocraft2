@@ -136,6 +136,7 @@ class NeuralNet:
         self.agent.train_short_memory(state_old, final_move, reward, state_new, done)
         self.agent.remember(state_old, final_move, reward, state_new, done)
         if done:
+            self.agent.n_games += 1
             self.agent.train_long_memory()
             # do this if good?
             # self.agent.model.save()

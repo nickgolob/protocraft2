@@ -58,6 +58,10 @@ public static class Battle {
         while (a.IsAlive() && b.IsAlive() && move_count < kMaxMoveCount) {
             var (a_move, b_move) = (a.GetMove(b), b.GetMove(a));
             Console.WriteLine(move_count + " a-" + a_move + " b-" + b_move);
+            if (!Transitions.IsValid(a.move, a_move) ||
+                !Transitions.IsValid(b.move, b_move)) {
+                throw new InvalidOperationException("");
+            }
             var (a_res_delta, b_res_delta) =
                 ResolveReservoirDeltas(a_move, b_move);
             a.ApplyResult(a_move, a_res_delta);

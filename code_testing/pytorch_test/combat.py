@@ -112,6 +112,8 @@ def validate_states():
 
 validate_states()
 
+def is_valid_move(start: Move, end: Move) -> bool:
+    return end in states[start]
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
@@ -130,6 +132,9 @@ class Combatant:
 
     def get_move(self, enemy: 'Combatant') -> Move:
         raise "virtual"
+
+    def invalid_move(self, move: Move) -> None:
+        pass
 
     def apply_move_result(self, deltas: Reservoirs) -> None:
         self.reservoirs += deltas
@@ -188,10 +193,24 @@ def resolve_moves(a: Move, b: Move) -> tuple[Reservoirs, Reservoirs]:
         raise Exception("invalid ", (a.name, b.name))
 
 
-def battle(a: Combatant, b: Combatant) -> None:
-    timer = 1000
+def battle(a: Combatant, b: Combatant, game_count: int) -> None:
+    print_moves = game_count % 50 == 0
+    timer = 200
+    invalid_move_played = False
     while a.is_alive() and b.is_alive() and timer > 0:
-        a_result, b_result = resolve_moves(a.get_move(b), b.get_move(a))
+        a_move, b_move = a.get_move(b), b.get_move(a)
+        if print_moves:
+            print("a,b: ", a_move, b_move)
+
+        if not is_valid_move(a.move, a_move) or not is_valid_move(b.move, b_move):
+            if not is_valid_move(a.move, a_move):
+                a.invalid_move(a_move)
+            if not is_valid_move(b.move, b_move):
+                b.invalid_move(b_move)
+            invalid_move_played = True
+            break
+
+        a_result, b_result = resolve_moves(a_move, b_move)
         a.state = a_result
         b.state = b_result
         a.apply_move_result(a_result)
@@ -199,9 +218,13 @@ def battle(a: Combatant, b: Combatant) -> None:
         a.post_move_update(b)
         b.post_move_update(a)
         timer -= 1
-    if not a.is_alive():
-        print('A died')
-    if not b.is_alive():
-        print('B died')
+    if invalid_move_played:
+        print(game_count, "- invalid move played")
+    elif not a.is_alive() and not b.is_alive():
+        print(game_count, "- both died")
+    elif not a.is_alive():
+        print(game_count, '- A died')
+    elif not b.is_alive():
+        print(game_count, '- B died')
     if timer == 0:
-        print('TIMEOUT')
+        print(game_count, '- TIMEOUT')
