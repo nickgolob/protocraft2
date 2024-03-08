@@ -2,8 +2,7 @@ namespace main;
 
 public class AIv1(string name_) : Combatant(name_) {
   private enum Plan {
-    ZONING_ATTACK,
-    SHORT_ATTACK,
+    ATTACK,
     BLOCK
   }
 
